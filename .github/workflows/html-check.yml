@@ -1,0 +1,21 @@
+name: HTML Test
+
+on:
+  push:
+    paths:
+      - cd_test.html
+
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install HTMLHint
+      run: npm install -g htmlhint
+
+    - name: Validate HTML
+      run: htmlhint cd_test.html
+
